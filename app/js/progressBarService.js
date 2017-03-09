@@ -15,7 +15,7 @@ app.factory('progressBarService', function() {
    * joke : https://www.youtube.com/watch?v=gENVB6tjq_M
    * @return {float} 0 --> 100
    */
-  ProgressBarService.prototype.calculateProgressBar = function calculateProgressBar(startValue, remainingTime, endTimeAttr, coutdown) {
+  ProgressBarService.prototype.calculateProgressBar = function calculateProgressBar(startValue, remainingTime, endTimeAttr, countdown) {
     var displayProgressBar = 0,
       endTimeValue,
       initialCountdown;
@@ -29,7 +29,7 @@ app.factory('progressBarService', function() {
       displayProgressBar = remainingTime * 100 / initialCountdown;
     }
     else {
-      displayProgressBar = remainingTime * 100 / coutdown;
+      displayProgressBar = remainingTime * 100 / countdown;
     }
 
     displayProgressBar = 100 - displayProgressBar; //To have 0 to 100 and not 100 to 0
