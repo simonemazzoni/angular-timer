@@ -335,7 +335,9 @@ var timerModule = angular.module('timer', [])
           //We are not using $timeout for a reason. Please read here - https://github.com/siddii/angular-timer/pull/5
           $scope.timeoutId = setTimeout(function () {
             tick();
-            $scope.$digest();
+            // since you choose not to use $timeout, at least preserve angular cycle two way data binding
+            // by calling $scope.$apply() instead of $scope.$digest()
+            $scope.$apply();
           }, $scope.interval - adjustment);
 
           $scope.$emit('timer-tick', {
