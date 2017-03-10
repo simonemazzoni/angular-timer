@@ -1,5 +1,5 @@
 /**
- * angular-timer - v1.3.5 - 2017-03-09 11:05 AM
+ * angular-timer - v1.3.5 - 2017-03-09 2:18 PM
  * https://github.com/siddii/angular-timer
  *
  * Copyright (c) 2017 Adrian Wardell
@@ -341,10 +341,10 @@ var timerModule = angular.module('timer', [])
 
           //We are not using $timeout for a reason. Please read here - https://github.com/siddii/angular-timer/pull/5
           $scope.timeoutId = setTimeout(function () {
-            tick();
-            // since you choose not to use $timeout, at least preserve angular cycle two way data binding
-            // by calling $scope.$apply() instead of $scope.$digest()
-            $scope.$apply();
+              tick();
+              // since you choose not to use $timeout, at least preserve angular cycle two way data binding
+              // by calling $scope.$apply() instead of $scope.$digest()
+              $scope.$apply();
           }, $scope.interval - adjustment);
 
           $scope.$emit('timer-tick', {
@@ -514,7 +514,7 @@ app.factory('progressBarService', function() {
    * joke : https://www.youtube.com/watch?v=gENVB6tjq_M
    * @return {float} 0 --> 100
    */
-  ProgressBarService.prototype.calculateProgressBar = function calculateProgressBar(startValue, remainingTime, endTimeAttr, countdown) {
+  ProgressBarService.prototype.calculateProgressBar = function calculateProgressBar(startValue, remainingTime, endTimeAttr, coutdown) {
     var displayProgressBar = 0,
       endTimeValue,
       initialCountdown;
@@ -528,7 +528,7 @@ app.factory('progressBarService', function() {
       displayProgressBar = remainingTime * 100 / initialCountdown;
     }
     else {
-      displayProgressBar = remainingTime * 100 / countdown;
+      displayProgressBar = remainingTime * 100 / coutdown;
     }
 
     displayProgressBar = 100 - displayProgressBar; //To have 0 to 100 and not 100 to 0
